@@ -4,9 +4,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing;
 use Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
 use Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
+use Symfony\Component\Routing;
 
 $request = Request::createFromGlobals();
 $routes = include __DIR__.'/../src/app.php';
