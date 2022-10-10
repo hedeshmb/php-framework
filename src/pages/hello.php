@@ -1,2 +1,2 @@
 
-Hello <?= htmlspecialchars(isset($name) ? ucfirst($name) : 'World', ENT_QUOTES, 'UTF-8') ?>
+Hello <?= htmlspecialchars(ucfirst($name), ENT_QUOTES, 'UTF-8') ?>
