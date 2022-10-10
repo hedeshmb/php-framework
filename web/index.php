@@ -5,18 +5,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
-//use Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
-//use Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
+use Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
+use Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
 
 $request = Request::createFromGlobals();
 $routes = include __DIR__.'/../src/app.php';
 
 $context = new Routing\RequestContext();
 $context->fromRequest($request);
-//$matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 
-//$compiledRoutes = (new CompiledUrlMatcherDumper($routes))->getCompiledRoutes();
-//$matcher = new CompiledUrlMatcher($compiledRoutes, $context);
+$compiledRoutes = (new CompiledUrlMatcherDumper($routes))->getCompiledRoutes();
+$matcher = new CompiledUrlMatcher($compiledRoutes, $context);
 
 
 try {
