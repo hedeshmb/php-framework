@@ -3,6 +3,7 @@
 use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\Routing;
 
 require_once __DIR__.'/../controller/LeapYearController.php';
@@ -10,9 +11,8 @@ require_once __DIR__.'/../controller/LeapYearController.php';
 
 $routes = new Routing\RouteCollection();
 
-$routes->add('hello', new Routing\Route('/hello/{name}', ['name' => 'World', '_controller' => function ($request) {
-    var_export("asa");exit;
-    // $foo will be available in the template
+$routes->add('hello', new Routing\Route('/hello/{name}', ['name' => 'World', '_controller' => function (Request $request) {
+        // $foo will be available in the template
     $request->attributes->set('foo', 'bar');
 
     $response = render_template($request);
@@ -24,7 +24,7 @@ $routes->add('hello', new Routing\Route('/hello/{name}', ['name' => 'World', '_c
 }]));
 
 $routes->add('bye', new Routing\Route('/bye', [
-    '_controller' => function ($request) {
+    '_controller' => function (Request $request) {
         return render_template($request);
     }]));
 
