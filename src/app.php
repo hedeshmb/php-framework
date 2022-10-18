@@ -1,13 +1,7 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Routing;
-
-require_once __DIR__.'/../controller/LeapYearController.php';
-
 
 $routes = new Routing\RouteCollection();
 
@@ -39,7 +33,7 @@ function is_leap_year($year = null)
 
 $routes->add('leap_year', new Routing\Route('/is_leap_year/{year}', [
     'year' => null,
-    '_controller' => [new LeapYearController(), 'index'],
+    '_controller' => 'Calendar\Controller\LeapYearController::index'
 ]));
 
 return $routes;
